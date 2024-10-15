@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "eff20634-aa99-46cd-ad87-3557fcb92cb5",
+		"name": "Library Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21938125",
+		"_collection_link": "https://bold-rocket-253800.postman.co/workspace/Team-Workspace~ae9c60cd-21a1-4db6-8d59-e33aaf16f696/collection/21938125-eff20634-aa99-46cd-ad87-3557fcb92cb5?action=share&source=collection_link&creator=21938125"
+	},
+	"item": [
+		{
+			"name": "Add Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookName\": \"Interstellar\",\r\n    \"author\": \"Nolan\",\r\n    \"genre\": \"Sci -FI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8016/library-service/api/addBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8016",
+					"path": [
+						"library-service",
+						"api",
+						"addBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Catelogue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8016/library-service/api/catelogue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8016",
+					"path": [
+						"library-service",
+						"api",
+						"catelogue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8016/library-service/api/search?bookName=Interstellar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8016",
+					"path": [
+						"library-service",
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "bookName",
+							"value": "Interstellar"
+						},
+						{
+							"key": "author",
+							"value": "Harry Potter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Out",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"referenceId\": \"fc1d1c25-ef76-48ac-8f7c-cbb2999e02f4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8016/library-service/api/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8016",
+					"path": [
+						"library-service",
+						"api",
+						"checkout"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "Harry Potter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"referenceId\": \"fc1d1c25-ef76-48ac-8f7c-cbb2999e02f4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8016/library-service/api/return",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8016",
+					"path": [
+						"library-service",
+						"api",
+						"return"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "Harry Potter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
