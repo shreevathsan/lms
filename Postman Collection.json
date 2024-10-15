@@ -14,7 +14,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"bookName\": \"Interstellar\",\r\n    \"author\": \"Nolan\",\r\n    \"genre\": \"Sci -FI\"\r\n}",
+					"raw": "{\r\n    \"bookName\": \"Inception\",\r\n    \"author\": \"Nolan\",\r\n    \"genre\": \"Sci -FI\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -22,12 +22,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8016/library-service/api/addBook",
+					"raw": "http://localhost:8080/library-service/api/addBook",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"library-service",
 						"api",
@@ -43,12 +43,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8016/library-service/api/catelogue",
+					"raw": "http://localhost:8080/library-service/api/catelogue",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"library-service",
 						"api",
@@ -76,12 +76,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8016/library-service/api/search?bookName=Interstellar",
+					"raw": "http://localhost:8080/library-service/api/search?author=Siva",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"library-service",
 						"api",
@@ -90,12 +90,12 @@
 					"query": [
 						{
 							"key": "bookName",
-							"value": "Interstellar"
+							"value": "Interstellar",
+							"disabled": true
 						},
 						{
 							"key": "author",
-							"value": "Harry Potter",
-							"disabled": true
+							"value": "Siva"
 						}
 					]
 				}
@@ -109,7 +109,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"referenceId\": \"fc1d1c25-ef76-48ac-8f7c-cbb2999e02f4\"\r\n}",
+					"raw": "{\r\n    \"referenceId\": \"9fc72e98-9270-48b1-801e-5696d884341b\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -117,12 +117,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8016/library-service/api/checkout",
+					"raw": "http://localhost:8080/library-service/api/checkout",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"library-service",
 						"api",
@@ -146,7 +146,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"referenceId\": \"fc1d1c25-ef76-48ac-8f7c-cbb2999e02f4\"\r\n}",
+					"raw": "{\r\n    \"referenceId\": \"9fc72e98-9270-48b1-801e-5696d884341b\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -154,12 +154,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8016/library-service/api/return",
+					"raw": "http://localhost:8080/library-service/api/return",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8016",
+					"port": "8080",
 					"path": [
 						"library-service",
 						"api",
