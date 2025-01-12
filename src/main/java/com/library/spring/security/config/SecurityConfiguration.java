@@ -7,9 +7,12 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.library.filter.JWTRequestFilter;
 import com.library.spring.security.MyUserDetailsService;
 
 @EnableWebSecurity
@@ -17,6 +20,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private MyUserDetailsService myUserDetailsService;
+
+	@Autowired
+	private JWTRequestFilter jwtRequestFilter;
 
 	// In Memory Authentication Logic
 //	@Override
@@ -41,7 +47,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected PasswordEncoder getPasswordEncoderType() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-	
+
 	@Override
 	@Bean
 	protected AuthenticationManager authenticationManager() throws Exception {
@@ -56,7 +62,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 		// This will disable the authentication for the defined end point and enable for
 		// other
-		http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll().anyRequest().authenticated();
+		http.csrf().disable().authorizeRequests().antMatchers("/authenticate").permitAll().anyRequest().authenticated()
+				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
 	}
 
 }
